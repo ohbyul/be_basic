@@ -2,21 +2,11 @@
 /dist
 /node_modules
 
-package-lock.json
-
-#env
-.env
-.env.json
-.env.dev.local
-.env_real.dev.local
-.env.stg.cloud
-.env.prod
-.env.stage
-
 # Logs
 logs
 *.log
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
