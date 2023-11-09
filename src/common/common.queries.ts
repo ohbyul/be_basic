@@ -22,15 +22,16 @@ export class CommonQuery {
     let {groupCd} = props
     const resultList: any = await this.CommonModel.sequelize.query(
         `
-          SELECT tcc.COMM_CD 
-                ,tcc.GROUP_CD 
-                ,tcc.COMM_CD_NM 
-                ,tcc.COMM_CD_DESC 
-                ,tcc.SORT_ORDER 
-           FROM TB_COMM_CD tcc
-            AND tcc.DELETE_YN = 'N'
-            AND tcc.GROUP_CD = :groupCd
-          ORDER BY tcc.SORT_ORDER ASC
+          SELECT tc.COMM_CD 
+                ,tc.GROUP_CD 
+                ,tc.COMM_CD_NM 
+                ,tc.COMM_CD_DESC 
+                ,tc.SORT_ORDER 
+           FROM TB_CODE tc
+          WHERE 1=1
+            AND tc.DELETE_YN = 'N'
+            AND tc.GROUP_CD = :groupCd
+          ORDER BY tc.SORT_ORDER ASC
         `,  
         { 
           replacements: {
