@@ -13,6 +13,14 @@ export class CommonService {
    * @returns 그룹CD별 코드 리스트
    ************************************************/
   async getCommonCodeList(params : any) {
+    let {props} = params
+    let {groupCd} = props
+
+    if(!groupCd){
+      throw new InternalServerErrorException({
+        statusCode: 10002,
+      })
+    }
     let commonCodeList: any = await this.commonQuery.getCommonCodeList({...params});
 
     if (commonCodeList) {
