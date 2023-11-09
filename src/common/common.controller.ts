@@ -25,4 +25,17 @@ export class CommonController {
     private commonService: CommonService,
   ) {}
 
+  
+  /*************************************************
+   * 사용자 권한 코드 리스트 조회   
+   * 
+   * @returns 사용자 권한 리스트
+   ************************************************/
+  @Get('code-list')
+  async getCodeList(@Query() props,
+                    @TransactionParam() transaction: Transaction) {
+    return this.commonService.getCommonCodeList({props,transaction});
+  }
+
+
 }
